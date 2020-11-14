@@ -8,6 +8,9 @@
  *  兼容 amd cmd 模块写法
  * */
 (function (global, factory) {
+    // debugger
+    // console.log(typeof global)
+    // console.log(global instanceof Window);
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :
             (global.Vue = factory());
@@ -3965,7 +3968,7 @@
                 console.log( '====vm.$el===')
                 console.log( vm.$el)
 
-                debugger;
+                // debugger;
                 //更新虚拟dom
                 vm.$el = vm.__patch__(
                     vm.$el, //真正的dom
@@ -4811,9 +4814,9 @@
     /*
      *
      Object.defineProperty(person,'name',{
-     configurable:false,//能否使用delete、能否需改属性特性、或能否修改访问器属性、，false为不可重新定义，默认值为true 是否可以编辑
-     enumerable:false,//对象属性是否可通过for-in循环，flase为不可循环，默认值为true 是否可以枚举遍历
-     writable:false,//对象属性是否可修改,flase为不可修改，默认值为true
+     configurable:false,//能否使用delete、能否修改属性特性、或能否修改访问器属性、，false为不可重新定义，默认值为true 是否可以编辑
+     enumerable:false,//对象属性是否可通过for-in循环，false为不可循环，默认值为true 是否可以枚举遍历
+     writable:false,//对象属性是否可修改,false为不可修改，默认值为true
      value:'' //对象属性的默认值，默认值为undefined
      });
      * */
@@ -4857,7 +4860,6 @@
             //初始化props 检验props 数据格式是否是规范的如果是规范的则添加到观察者队列中
             initProps(vm, opts.props);
         }
-
 
         if (opts.methods) { //事件
             //   初始化事件Methods 把事件 冒泡到 vm[key] 虚拟dom  最外层中
@@ -6756,7 +6758,6 @@
     //初始化vue
     function initMixin(Vue) {
         Vue.prototype._init = function (options) { //初始化函数
-
             var vm = this;
             // a uid
             vm._uid = uid$3++; //id
@@ -6943,6 +6944,7 @@
         }
         this._init(options);
     }
+
 
     initMixin(Vue);    //初始化vue
     stateMixin(Vue);  //数据绑定，$watch方法
@@ -8843,7 +8845,7 @@
                                ) {
             console.log('===oldVnode===')
             console.log(oldVnode)
-            debugger;
+            // debugger;
                                     if (isUndef(vnode)) {　　　　//如果没有定义新的vonde
                                         if (isDef(oldVnode)) { //如果没有定义旧的vonde
                                             invokeDestroyHook(oldVnode); //如果vnode不存在但是oldVnode存在，说明意图是要销毁老节点，那么就调用invokeDestroyHook(oldVnode)来进行销毁
@@ -9173,7 +9175,7 @@
      * */
 
     function updateAttrs(oldVnode, vnode) {
-        debugger
+        // debugger
         var opts = vnode.componentOptions;  //获取组件的拓展参数
         if (isDef(opts) && opts.Ctor.options.inheritAttrs === false) {  // 判断是否定义有拓展参数，并且需要Ctor.options.inheritAttrs 不等于 false的 时候才执行下面的代码
             return
@@ -12169,7 +12171,7 @@
     Vue.prototype.$mount = function (el,  //真实dom 或者是string
                                      hydrating  //新的虚拟dom vonde
     ) {
-         debugger
+        //  debugger
         el = el && inBrowser ? query(el) : undefined;
         return mountComponent(
                                 this,
@@ -15617,6 +15619,7 @@
                                     //参数传进来的函数
                                     //template 模板
                                     //finalOptions 基本参数
+                                    debugger
                                     var compiled = baseCompile(
                                         template, //template 模板
                                         finalOptions  //finalOptions 基本参数  为虚拟dom添加基本需要的属性
@@ -15756,7 +15759,7 @@
     // new Vue时，el和$mount并没有本质上的不同。
 
     Vue.prototype.$mount = function (el, hydrating) { //重写Vue.prototype.$mount
-
+        // debugger
         el = el && query(el); //获取dom
         /* istanbul ignore if */
         //如果el 是body 或者文档 则警告
@@ -15819,7 +15822,7 @@
                 //创建模板
                 console.log('==options.comments==')
                 console.log(options.comments)
-
+                // debugger
                 var ref = compileToFunctions(
                     template, //模板字符串
                     {
